@@ -1,6 +1,7 @@
+#source : http://www.cvl.isy.liu.se:82/education/graduate/spectral-clustering/SC_course_part1.pdf
 import pandas as pd 
 import numpy as np
-data = pd.read_csv("stype.csv", sep=";")
+data = pd.read_csv("/home/alaeddinez/MyProjects/LMFR-BigData--supply--ClustMag/stype.csv", sep=";")
 data.mag1 = data.mag1.astype("str")
 data.mag2 = data.mag2.astype("str")
 data["coeff"] = data.commun_reappro1 / data.union_product
@@ -128,3 +129,15 @@ plt.savefig('graph.png')
 
 
 
+
+import seaborn as sns
+# Correlation Matrix Heatmap
+f, ax = plt.subplots(figsize=(10, 6))
+
+cor_data = pd.DataFrame(A) 
+corr = cor_data.corr()
+hm = sns.heatmap(round(corr,2), annot=True, ax=ax, cmap="coolwarm",fmt='.2f',
+                 linewidths=.05)
+f.subplots_adjust(top=0.93)
+t= f.suptitle('Correlation Heatmap', fontsize=14)
+plt.savefig('heatmap.png')
