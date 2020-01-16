@@ -142,4 +142,19 @@ K_3_5=nx.complete_bipartite_graph(3,5)
 barbell=nx.barbell_graph(10,10)
 lollipop=nx.lollipop_graph(10,20)
 
+# Plot one of the classic graphs.
+pydot(barbell)
+
+
+
+# Generate some random graphs for arbitrary parameter values.
+er=nx.erdos_renyi_graph(10,0.15)
+ws=nx.watts_strogatz_graph(30,3,0.1)
+ba=nx.barabasi_albert_graph(10,5)
+red=nx.random_lobster(20,0.9,0.9)
+
+
+
+# Plot one of the random graphs.
+pydot(ba)
 
